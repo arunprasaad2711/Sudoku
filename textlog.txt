@@ -1,0 +1,308 @@
+Testing!
+Diagnosis on the Entered Sudoku!
+The sudoku seems valid!
+Alright! Starting with 77 unfilled entries and 564 global choices
+Initiating the Logical Iterative Solver!
+Updating Entry 6 in grid (3, 3)
+Updating Entry 2 in grid (3, 5)
+Updating Entry 8 in grid (5, 3)
+Updating Entry 4 in grid (5, 5)
+Updating Entry 5 in grid (4, 4)
+Updating Entry 7 in grid (3, 4)
+Updating Entry 3 in grid (5, 4)
+Updating Entry 1 in grid (4, 3)
+Updating Entry 9 in grid (4, 5)
+After Gear 1, iteration 1, unfilled entries = 68, global choices = 371
+option = 2 occuring 2 times in [(0, 6), (0, 7)]
+2 2 [(0, 0), (0, 1), (0, 2), (0, 3), (0, 4), (0, 5)]
+option = 1 occuring 2 times in [(5, 0), (5, 2)]
+1 2 [(5, 3), (5, 4), (5, 5), (5, 6), (5, 7), (5, 8), (6, 0), (6, 2), (7, 1)]
+option = 5 occuring 2 times in [(5, 0), (5, 1)]
+5 2 [(5, 3), (5, 4), (5, 5), (5, 6), (5, 7), (5, 8), (6, 0), (6, 2), (7, 1)]
+option = 6 occuring 2 times in [(4, 0), (4, 2)]
+6 2 [(5, 3), (5, 4), (5, 5), (5, 6), (5, 7), (5, 8), (6, 0), (6, 2), (7, 1)]
+Updating Entry 7 in grid (5, 6)
+Updating Entry 6 in grid (5, 8)
+Updating Entry 2 in grid (5, 7)
+option = 7 occuring 2 times in [(4, 0), (4, 1)]
+7 2 [(5, 3), (5, 4), (5, 5), (5, 6), (5, 7), (5, 8), (6, 0), (6, 2), (7, 1)]
+Updating Entry 9 in grid (6, 2)
+Updating Entry 8 in grid (2, 2)
+Updating Entry 1 in grid (5, 2)
+Updating Entry 5 in grid (5, 0)
+Updating Entry 9 in grid (5, 1)
+option = 3 occuring 2 times in [(4, 7), (4, 8)]
+3 2 [(2, 7), (2, 8), (4, 0), (4, 1), (4, 2), (4, 3), (4, 4), (4, 5), (6, 7), (6, 8)]
+option = 4 occuring 2 times in [(4, 6), (4, 8)]
+4 2 [(2, 7), (2, 8), (4, 0), (4, 1), (4, 2), (4, 3), (4, 4), (4, 5), (6, 7), (6, 8)]
+option = 5 occuring 2 times in [(3, 7), (3, 8)]
+5 2 [(2, 7), (2, 8), (4, 0), (4, 1), (4, 2), (4, 3), (4, 4), (4, 5), (6, 7), (6, 8)]
+option = 9 occuring 2 times in [(3, 6), (3, 8)]
+9 2 [(2, 7), (2, 8), (4, 0), (4, 1), (4, 2), (4, 3), (4, 4), (4, 5), (6, 7), (6, 8)]
+Updating Entry 5 in grid (6, 1)
+Updating Entry 2 in grid (0, 6)
+Updating Entry 8 in grid (7, 0)
+option = 1 occuring 2 times in [(8, 0), (8, 1)]
+1 2 [(8, 3), (8, 4), (8, 5), (8, 6), (8, 7), (8, 8)]
+option = 2 occuring 2 times in [(6, 0), (7, 2)]
+2 2 [(8, 3), (8, 4), (8, 5), (8, 6), (8, 7), (8, 8)]
+option = 1 occuring 2 times in [(7, 4), (7, 5)]
+1 2 [(5, 4), (5, 5), (7, 0), (7, 1), (7, 2), (7, 6), (7, 7), (7, 8)]
+option = 3 occuring 2 times in [(6, 3), (6, 5)]
+3 2 [(5, 4), (5, 5), (7, 0), (7, 1), (7, 2), (7, 6), (7, 7), (7, 8)]
+Updating Entry 4 in grid (7, 1)
+Updating Entry 2 in grid (6, 0)
+Updating Entry 7 in grid (4, 1)
+Updating Entry 6 in grid (4, 0)
+Updating Entry 2 in grid (4, 2)
+Updating Entry 1 in grid (1, 1)
+Updating Entry 9 in grid (2, 0)
+Updating Entry 7 in grid (0, 0)
+Updating Entry 4 in grid (1, 0)
+Updating Entry 3 in grid (2, 1)
+Updating Entry 6 in grid (0, 1)
+Updating Entry 5 in grid (0, 2)
+Updating Entry 3 in grid (1, 2)
+Updating Entry 4 in grid (8, 1)
+Updating Entry 1 in grid (8, 0)
+Updating Entry 9 in grid (1, 4)
+Updating Entry 9 in grid (7, 7)
+option = 8 occuring 2 times in [(8, 4), (8, 5)]
+8 2 [(5, 4), (5, 5), (7, 0), (7, 1), (7, 2), (7, 6), (7, 7), (7, 8)]
+option = 9 occuring 2 times in [(7, 3), (8, 4)]
+9 2 [(5, 4), (5, 5), (7, 0), (7, 1), (7, 2), (7, 6), (7, 7), (7, 8)]
+Updating Entry 9 in grid (3, 8)
+Updating Entry 1 in grid (3, 6)
+Updating Entry 5 in grid (3, 7)
+Updating Entry 8 in grid (6, 6)
+Updating Entry 1 in grid (6, 8)
+Updating Entry 7 in grid (2, 8)
+Updating Entry 6 in grid (1, 7)
+Updating Entry 8 in grid (1, 6)
+Updating Entry 7 in grid (1, 8)
+Updating Entry 5 in grid (7, 8)
+Updating Entry 6 in grid (7, 6)
+Updating Entry 7 in grid (6, 7)
+Updating Entry 3 in grid (6, 3)
+Updating Entry 4 in grid (0, 3)
+Updating Entry 7 in grid (2, 3)
+Updating Entry 1 in grid (2, 5)
+Updating Entry 8 in grid (0, 4)
+Updating Entry 6 in grid (8, 4)
+Updating Entry 4 in grid (6, 4)
+Updating Entry 7 in grid (6, 5)
+Updating Entry 2 in grid (7, 3)
+Updating Entry 5 in grid (1, 3)
+Updating Entry 6 in grid (1, 5)
+Updating Entry 2 in grid (2, 4)
+Updating Entry 1 in grid (2, 7)
+Updating Entry 7 in grid (8, 3)
+Updating Entry 6 in grid (8, 2)
+Updating Entry 7 in grid (7, 2)
+Updating Entry 3 in grid (8, 7)
+Updating Entry 5 in grid (8, 6)
+Updating Entry 8 in grid (8, 5)
+Updating Entry 4 in grid (0, 7)
+Updating Entry 3 in grid (0, 8)
+Updating Entry 1 in grid (0, 5)
+Updating Entry 5 in grid (7, 5)
+Updating Entry 4 in grid (4, 8)
+Updating Entry 8 in grid (4, 6)
+Updating Entry 3 in grid (4, 7)
+Updating Entry 6 in grid (2, 6)
+Updating Entry 1 in grid (7, 4)
+After Gear 2, iteration 1, unfilled entries = 0, global choices = 0
+Verifying the Solved Solution!
+The full sudoku solution is invalid!
+-------------------------
+| 7 6 5 | 4 8 1 | 2 4 3 |
+| 4 1 3 | 5 9 6 | 8 6 7 |
+| 9 3 8 | 7 2 1 | 6 1 7 |
+-------------------------
+| 3 8 4 | 6 7 2 | 1 5 9 |
+| 6 7 2 | 1 5 9 | 8 3 4 |
+| 5 9 1 | 8 3 4 | 7 2 6 |
+-------------------------
+| 2 5 9 | 3 4 7 | 8 7 1 |
+| 8 4 7 | 2 1 5 | 6 9 5 |
+| 1 4 6 | 7 6 8 | 5 3 2 |
+-------------------------
+Sudoku Partially Solved using pure logics
+It took 1 logical iteration(s) alone to incorrectly solve the full puzzle.
+Time taken is 0.03054356575012207 seconds
+Grid (1, 1), Facevalue = 7
+choices = [], num_choices = 0
+Grid (1, 2), Facevalue = 6
+choices = [], num_choices = 0
+Grid (1, 3), Facevalue = 5
+choices = [], num_choices = 0
+Grid (1, 4), Facevalue = 4
+choices = [], num_choices = 0
+Grid (1, 5), Facevalue = 8
+choices = [], num_choices = 0
+Grid (1, 6), Facevalue = 1
+choices = [], num_choices = 0
+Grid (1, 7), Facevalue = 2
+choices = [], num_choices = 0
+Grid (1, 8), Facevalue = 4
+choices = [], num_choices = 0
+Grid (1, 9), Facevalue = 3
+choices = [], num_choices = 0
+Grid (2, 1), Facevalue = 4
+choices = [], num_choices = 0
+Grid (2, 2), Facevalue = 1
+choices = [], num_choices = 0
+Grid (2, 3), Facevalue = 3
+choices = [], num_choices = 0
+Grid (2, 4), Facevalue = 5
+choices = [], num_choices = 0
+Grid (2, 5), Facevalue = 9
+choices = [], num_choices = 0
+Grid (2, 6), Facevalue = 6
+choices = [], num_choices = 0
+Grid (2, 7), Facevalue = 8
+choices = [], num_choices = 0
+Grid (2, 8), Facevalue = 6
+choices = [], num_choices = 0
+Grid (2, 9), Facevalue = 7
+choices = [], num_choices = 0
+Grid (3, 1), Facevalue = 9
+choices = [], num_choices = 0
+Grid (3, 2), Facevalue = 3
+choices = [], num_choices = 0
+Grid (3, 3), Facevalue = 8
+choices = [], num_choices = 0
+Grid (3, 4), Facevalue = 7
+choices = [], num_choices = 0
+Grid (3, 5), Facevalue = 2
+choices = [], num_choices = 0
+Grid (3, 6), Facevalue = 1
+choices = [], num_choices = 0
+Grid (3, 7), Facevalue = 6
+choices = [], num_choices = 0
+Grid (3, 8), Facevalue = 1
+choices = [], num_choices = 0
+Grid (3, 9), Facevalue = 7
+choices = [], num_choices = 0
+Grid (4, 1), Facevalue = 3
+choices = [], num_choices = 0
+Grid (4, 2), Facevalue = 8
+choices = [], num_choices = 0
+Grid (4, 3), Facevalue = 4
+choices = [], num_choices = 0
+Grid (4, 4), Facevalue = 6
+choices = [], num_choices = 0
+Grid (4, 5), Facevalue = 7
+choices = [], num_choices = 0
+Grid (4, 6), Facevalue = 2
+choices = [], num_choices = 0
+Grid (4, 7), Facevalue = 1
+choices = [], num_choices = 0
+Grid (4, 8), Facevalue = 5
+choices = [], num_choices = 0
+Grid (4, 9), Facevalue = 9
+choices = [], num_choices = 0
+Grid (5, 1), Facevalue = 6
+choices = [], num_choices = 0
+Grid (5, 2), Facevalue = 7
+choices = [], num_choices = 0
+Grid (5, 3), Facevalue = 2
+choices = [], num_choices = 0
+Grid (5, 4), Facevalue = 1
+choices = [], num_choices = 0
+Grid (5, 5), Facevalue = 5
+choices = [], num_choices = 0
+Grid (5, 6), Facevalue = 9
+choices = [], num_choices = 0
+Grid (5, 7), Facevalue = 8
+choices = [], num_choices = 0
+Grid (5, 8), Facevalue = 3
+choices = [], num_choices = 0
+Grid (5, 9), Facevalue = 4
+choices = [], num_choices = 0
+Grid (6, 1), Facevalue = 5
+choices = [], num_choices = 0
+Grid (6, 2), Facevalue = 9
+choices = [], num_choices = 0
+Grid (6, 3), Facevalue = 1
+choices = [], num_choices = 0
+Grid (6, 4), Facevalue = 8
+choices = [], num_choices = 0
+Grid (6, 5), Facevalue = 3
+choices = [], num_choices = 0
+Grid (6, 6), Facevalue = 4
+choices = [], num_choices = 0
+Grid (6, 7), Facevalue = 7
+choices = [], num_choices = 0
+Grid (6, 8), Facevalue = 2
+choices = [], num_choices = 0
+Grid (6, 9), Facevalue = 6
+choices = [], num_choices = 0
+Grid (7, 1), Facevalue = 2
+choices = [], num_choices = 0
+Grid (7, 2), Facevalue = 5
+choices = [], num_choices = 0
+Grid (7, 3), Facevalue = 9
+choices = [], num_choices = 0
+Grid (7, 4), Facevalue = 3
+choices = [], num_choices = 0
+Grid (7, 5), Facevalue = 4
+choices = [], num_choices = 0
+Grid (7, 6), Facevalue = 7
+choices = [], num_choices = 0
+Grid (7, 7), Facevalue = 8
+choices = [], num_choices = 0
+Grid (7, 8), Facevalue = 7
+choices = [], num_choices = 0
+Grid (7, 9), Facevalue = 1
+choices = [], num_choices = 0
+Grid (8, 1), Facevalue = 8
+choices = [], num_choices = 0
+Grid (8, 2), Facevalue = 4
+choices = [], num_choices = 0
+Grid (8, 3), Facevalue = 7
+choices = [], num_choices = 0
+Grid (8, 4), Facevalue = 2
+choices = [], num_choices = 0
+Grid (8, 5), Facevalue = 1
+choices = [], num_choices = 0
+Grid (8, 6), Facevalue = 5
+choices = [], num_choices = 0
+Grid (8, 7), Facevalue = 6
+choices = [], num_choices = 0
+Grid (8, 8), Facevalue = 9
+choices = [], num_choices = 0
+Grid (8, 9), Facevalue = 5
+choices = [], num_choices = 0
+Grid (9, 1), Facevalue = 1
+choices = [], num_choices = 0
+Grid (9, 2), Facevalue = 4
+choices = [], num_choices = 0
+Grid (9, 3), Facevalue = 6
+choices = [], num_choices = 0
+Grid (9, 4), Facevalue = 7
+choices = [], num_choices = 0
+Grid (9, 5), Facevalue = 6
+choices = [], num_choices = 0
+Grid (9, 6), Facevalue = 8
+choices = [], num_choices = 0
+Grid (9, 7), Facevalue = 5
+choices = [], num_choices = 0
+Grid (9, 8), Facevalue = 3
+choices = [], num_choices = 0
+Grid (9, 9), Facevalue = 2
+choices = [], num_choices = 0
+The Sudoku at this stage is:
+-------------------------
+| 7 6 5 | 4 8 1 | 2 4 3 |
+| 4 1 3 | 5 9 6 | 8 6 7 |
+| 9 3 8 | 7 2 1 | 6 1 7 |
+-------------------------
+| 3 8 4 | 6 7 2 | 1 5 9 |
+| 6 7 2 | 1 5 9 | 8 3 4 |
+| 5 9 1 | 8 3 4 | 7 2 6 |
+-------------------------
+| 2 5 9 | 3 4 7 | 8 7 1 |
+| 8 4 7 | 2 1 5 | 6 9 5 |
+| 1 4 6 | 7 6 8 | 5 3 2 |
+-------------------------

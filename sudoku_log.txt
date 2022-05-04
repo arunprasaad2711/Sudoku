@@ -1,0 +1,176 @@
+Grid (1, 1), Facevalue = 0
+choices = [7, 8, 9], num_choices = 3
+Grid (1, 2), Facevalue = 0
+choices = [1, 4, 5, 6, 7, 9], num_choices = 6
+Grid (1, 3), Facevalue = 0
+choices = [1, 3, 5, 6, 7, 8, 9], num_choices = 7
+Grid (1, 4), Facevalue = 0
+choices = [4, 5, 7, 9], num_choices = 4
+Grid (1, 5), Facevalue = 0
+choices = [1, 4, 6, 8, 9], num_choices = 5
+Grid (1, 6), Facevalue = 0
+choices = [1, 5, 6, 7, 8], num_choices = 5
+Grid (1, 7), Facevalue = 2
+choices = [], num_choices = 0
+Grid (1, 8), Facevalue = 0
+choices = [1, 4, 5, 6, 7, 9], num_choices = 6
+Grid (1, 9), Facevalue = 0
+choices = [1, 4, 6, 7, 9], num_choices = 5
+Grid (2, 1), Facevalue = 0
+choices = [1, 2, 4, 5, 6, 7, 9], num_choices = 7
+Grid (2, 2), Facevalue = 0
+choices = [7, 9], num_choices = 2
+Grid (2, 3), Facevalue = 0
+choices = [1, 2, 3, 5, 7, 9], num_choices = 6
+Grid (2, 4), Facevalue = 0
+choices = [2, 5, 9], num_choices = 3
+Grid (2, 5), Facevalue = 0
+choices = [1, 4, 8, 9], num_choices = 4
+Grid (2, 6), Facevalue = 0
+choices = [1, 3, 5, 6, 8], num_choices = 5
+Grid (2, 7), Facevalue = 0
+choices = [5, 6, 7, 8], num_choices = 4
+Grid (2, 8), Facevalue = 0
+choices = [4, 6, 7], num_choices = 3
+Grid (2, 9), Facevalue = 0
+choices = [4, 6, 7, 8, 9], num_choices = 5
+Grid (3, 1), Facevalue = 0
+choices = [1, 2, 5, 6, 8, 9], num_choices = 6
+Grid (3, 2), Facevalue = 0
+choices = [1, 2, 4, 5, 9], num_choices = 5
+Grid (3, 3), Facevalue = 0
+choices = [8, 9], num_choices = 2
+Grid (3, 4), Facevalue = 0
+choices = [4, 7, 9], num_choices = 3
+Grid (3, 5), Facevalue = 0
+choices = [2, 6, 8], num_choices = 3
+Grid (3, 6), Facevalue = 0
+choices = [1, 7, 8], num_choices = 3
+Grid (3, 7), Facevalue = 3
+choices = [], num_choices = 0
+Grid (3, 8), Facevalue = 0
+choices = [1, 5, 6, 7, 9], num_choices = 5
+Grid (3, 9), Facevalue = 0
+choices = [1, 4, 5, 6, 7], num_choices = 5
+Grid (4, 1), Facevalue = 3
+choices = [], num_choices = 0
+Grid (4, 2), Facevalue = 8
+choices = [], num_choices = 0
+Grid (4, 3), Facevalue = 4
+choices = [], num_choices = 0
+Grid (4, 4), Facevalue = 6
+choices = [], num_choices = 0
+Grid (4, 5), Facevalue = 7
+choices = [], num_choices = 0
+Grid (4, 6), Facevalue = 2
+choices = [], num_choices = 0
+Grid (4, 7), Facevalue = 9
+choices = [], num_choices = 0
+Grid (4, 8), Facevalue = 0
+choices = [1, 5], num_choices = 2
+Grid (4, 9), Facevalue = 0
+choices = [1, 5], num_choices = 2
+Grid (5, 1), Facevalue = 0
+choices = [2, 6, 7], num_choices = 3
+Grid (5, 2), Facevalue = 0
+choices = [2, 7], num_choices = 2
+Grid (5, 3), Facevalue = 0
+choices = [2, 6], num_choices = 2
+Grid (5, 4), Facevalue = 1
+choices = [], num_choices = 0
+Grid (5, 5), Facevalue = 5
+choices = [], num_choices = 0
+Grid (5, 6), Facevalue = 9
+choices = [], num_choices = 0
+Grid (5, 7), Facevalue = 4
+choices = [], num_choices = 0
+Grid (5, 8), Facevalue = 8
+choices = [], num_choices = 0
+Grid (5, 9), Facevalue = 3
+choices = [], num_choices = 0
+Grid (6, 1), Facevalue = 0
+choices = [1, 5, 9], num_choices = 3
+Grid (6, 2), Facevalue = 0
+choices = [5, 9], num_choices = 2
+Grid (6, 3), Facevalue = 0
+choices = [1, 9], num_choices = 2
+Grid (6, 4), Facevalue = 8
+choices = [], num_choices = 0
+Grid (6, 5), Facevalue = 3
+choices = [], num_choices = 0
+Grid (6, 6), Facevalue = 4
+choices = [], num_choices = 0
+Grid (6, 7), Facevalue = 0
+choices = [6, 7], num_choices = 2
+Grid (6, 8), Facevalue = 2
+choices = [], num_choices = 0
+Grid (6, 9), Facevalue = 0
+choices = [6, 7], num_choices = 2
+Grid (7, 1), Facevalue = 0
+choices = [2, 4, 5, 6, 8, 9], num_choices = 6
+Grid (7, 2), Facevalue = 0
+choices = [2, 3, 4, 5, 9], num_choices = 5
+Grid (7, 3), Facevalue = 0
+choices = [6, 7, 9], num_choices = 3
+Grid (7, 4), Facevalue = 0
+choices = [2, 3, 7, 9], num_choices = 4
+Grid (7, 5), Facevalue = 0
+choices = [2, 4, 6, 8], num_choices = 4
+Grid (7, 6), Facevalue = 0
+choices = [6, 7], num_choices = 2
+Grid (7, 7), Facevalue = 1
+choices = [], num_choices = 0
+Grid (7, 8), Facevalue = 0
+choices = [5, 6, 7, 9], num_choices = 4
+Grid (7, 9), Facevalue = 0
+choices = [4, 5, 9], num_choices = 3
+Grid (8, 1), Facevalue = 0
+choices = [1, 2, 4, 6, 7, 8, 9], num_choices = 7
+Grid (8, 2), Facevalue = 0
+choices = [4, 6, 7, 9], num_choices = 4
+Grid (8, 3), Facevalue = 0
+choices = [1, 2, 5, 6, 7, 9], num_choices = 6
+Grid (8, 4), Facevalue = 0
+choices = [2, 4, 5, 7, 9], num_choices = 5
+Grid (8, 5), Facevalue = 0
+choices = [2, 6, 9], num_choices = 3
+Grid (8, 6), Facevalue = 0
+choices = [1, 5, 6, 7, 8], num_choices = 5
+Grid (8, 7), Facevalue = 0
+choices = [5, 6, 7, 8], num_choices = 4
+Grid (8, 8), Facevalue = 3
+choices = [], num_choices = 0
+Grid (8, 9), Facevalue = 0
+choices = [4, 5, 6, 7, 8, 9], num_choices = 6
+Grid (9, 1), Facevalue = 0
+choices = [1, 4, 6, 7, 9], num_choices = 5
+Grid (9, 2), Facevalue = 0
+choices = [1, 3, 4, 5, 6, 7, 9], num_choices = 7
+Grid (9, 3), Facevalue = 0
+choices = [1, 5, 6, 7, 8, 9], num_choices = 6
+Grid (9, 4), Facevalue = 0
+choices = [3, 4, 5, 7, 9], num_choices = 5
+Grid (9, 5), Facevalue = 0
+choices = [1, 4, 6, 8, 9], num_choices = 5
+Grid (9, 6), Facevalue = 0
+choices = [5, 6, 7, 8], num_choices = 4
+Grid (9, 7), Facevalue = 0
+choices = [5, 6, 7, 8], num_choices = 4
+Grid (9, 8), Facevalue = 0
+choices = [4, 5, 6, 7, 9], num_choices = 5
+Grid (9, 9), Facevalue = 2
+choices = [], num_choices = 0
+The Sudoku at this stage is:
+-------------------------
+| 0 0 0 | 0 0 0 | 2 0 0 |
+| 0 0 0 | 0 0 0 | 0 0 0 |
+| 0 0 0 | 0 0 0 | 3 0 0 |
+-------------------------
+| 3 8 4 | 6 7 2 | 9 0 0 |
+| 0 0 0 | 1 5 9 | 4 8 3 |
+| 0 0 0 | 8 3 4 | 0 2 0 |
+-------------------------
+| 0 0 0 | 0 0 0 | 1 0 0 |
+| 0 0 0 | 0 0 0 | 0 3 0 |
+| 0 0 0 | 0 0 0 | 0 0 2 |
+-------------------------
