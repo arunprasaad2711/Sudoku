@@ -1,12 +1,12 @@
 import tkinter as tk
-from tkinter import font, ttk
+from tkinter import font
 import numpy as np
 import time
 from itertools import combinations, product
 import sudoku_puzzles as sp
 import copy
 import sys
-#import PySimpleGUI as sg
+import json
 
 class Sudoku:
 
@@ -18,7 +18,8 @@ class Sudoku:
                  antiknight=False, nonConsec=False, antiking=False, cr_status=False,
                  queen=False, queendigits=[9], oddKnightEvenQueen=False, evenKnightOddQueen=False,
                  magicSquare=False, nMagicsumSets=0, magicSum_sets=[], magicSumVal=15, evenCorner=True,
-                 sandwich=False, row_sums=[], col_sums=[], royal=False, testing=False):
+                 killer=False, killerSums=[], killerCages=[], superWindoku=False,
+                 royal=False, testing=False):
 
         # Sudoku Puzzle Variables
         self.orderRow = orderRow
@@ -37,6 +38,7 @@ class Sudoku:
         self.evenDiagonals = evenDiagonals
         self.evenOddDiagonals = evenOddDiagonals
         self.windoku = windoku
+        self.superWindoku = superWindoku
         self.antiknight = antiknight
         self.nonConsec = nonConsec
         self.antiking = antiking
@@ -68,11 +70,10 @@ class Sudoku:
         self.nThermometerSets = nThermometerSets
         self.Thermometer_IDs = thermometerSets
 
-        # Sandwich sudoku sets
-        self.sandwich = sandwich
-        self.extremes = np.array((1, self.rows), dtype=np.int32)
-        self.row_sums = row_sums + sum(self.extremes)
-        self.col_sums = col_sums + sum(self.extremes)
+        # Killer Sudoku
+        self.killer = killer
+        self.killerSums = killerSums
+        self.killerCages = killerCages
 
         # Graphic variables
         self.scale = scale
@@ -107,7 +108,7 @@ class Sudoku:
         self.cr_status = cr_status
 
         # Font Variables
-        self.font = "Helvetica"
+        self.font = "Tahoma"
         self.numFontstyle = "normal"
         self.btnFontstyle = "normal"
         self.penFontstyle = "normal"
@@ -173,6 +174,28 @@ class Sudoku:
             self.w0_IDs.append(list(product([0, 4, 8], [1, 2, 3])))
             self.w0_IDs.append(list(product([0, 4, 8], [5, 6, 7])))
             self.w0_IDs.append(list(product([0, 4, 8], [0, 4, 8])))
+            # for i in range(len(self.w0_IDs)):
+            #     print(self.w0_IDs[i])
+        
+        # Setup IDs for Super Windoku
+        if self.superWindoku:
+
+            self.SW0_IDs = []
+            BaseList = []
+            for i in range(orderRow):
+                for j in range(orderCol):
+                    BaseList.append((i*orderRow, j*orderCol))
+
+            for x in range(orderRow):
+                for y in range(orderCol):
+                    list1 = []
+                    for ID in BaseList:
+                        i, j = ID
+                        list1.append((i + x, j + y))
+                    self.SW0_IDs.append(list1)
+            
+            # for i in range(len(self.SW0_IDs)):
+            #     print(self.SW0_IDs[i])
         
         if self.queen:
             self.queens = queendigits
@@ -340,11 +363,25 @@ class Sudoku:
                 # print(IDs, lenIDs)
                 for i in range(0, lenIDs):
                     x, y = IDs[i]
+                    # print(f"Cell ({x}, {y}), matrix value = {self.matrix[x, y]}")
+                    # if self.matrix[x, y] == 0:
                     minVal = i + 1
                     maxVal = max(self.super_set) - lenIDs + i + 2
                     self.Grids[x][y]["choices"] = list(range(minVal, maxVal))
                     self.Grids[x][y]["num_choices"] = len(self.Grids[x][y]["choices"])
                     # print(self.Grids[x][y]["choices"])
+        
+        if self.killer:
+
+            for i in range(0, len(self.killerSums)):
+                CageSum = self.killerSums[i]
+                CageLength = len(self.killerCages[i])
+
+                NewChoices = self.killerCage_candidate_generator(CageSum, CageLength)
+
+                for x, y in self.killerCages[i]:
+                    self.Grids[x][y]["choices"] = NewChoices.copy()
+                    self.Grids[x][y]["num_choices"] = len(NewChoices)
 
         if self.magicSquare:
                 
@@ -511,6 +548,7 @@ class Sudoku:
             self.zeros -= 1
             self.canvas.itemconfigure(self.Grids[i][j]["label"], text=entry, 
                 fill=self.colour_minor, font=self.numFont)
+            # self.canvas.update()
         self.Grids[i][j]["choices"] = []
         self.Grids[i][j]["num_choices"] = 0
         # print(f"Calling SRC after filling entry {entry} in cell {i, j}")
@@ -751,9 +789,59 @@ class Sudoku:
                     # print(f"Found a naked entry {self.Grids[i][j]['choices'][0]} in fast scanner.")
                     self.update_cell(i, j, self.Grids[i][j]["choices"][0], forced_chain)
         
+        # if self.killer:
+
+        #     # Scan through all killer sums
+        #     for i in range(0, len(self.killerSums)):
+
+        #         # Get the sum of one killer cage
+        #         CageSum = self.killerSums[i]
+
+        #         # Get the cage length
+        #         CageLength = len(self.killerCages[i])
+
+        #         # Scan through all the entries in a killer cage
+        #         for x, y in self.killerCages[i]:
+        #             num_choices = self.Grids[x][y]["num_choices"]
+
+        #             # check if an entry is filled.
+        #             if num_choices == 0:
+
+        #                 if forced_chain:
+        #                     entry = self.btMatrix[x, y]
+        #                 else:
+        #                     entry = self.Solution[x, y]
+                        
+        #                 # If the entry is filled, subtract it from the killer cage sum
+        #                 # And reduce the cage length by 1
+        #                 CageSum -= entry
+        #                 CageLength -= 1
+                
+        #         # Check if the cage sum has reduced or not.
+        #         # If it is reduced, update the choices.
+        #         if self.killerSums[i] > CageSum:
+
+        #             # If the cage sum is reduced, then get the new choices
+        #             NewChoices = self.killerCage_candidate_generator(CageSum, CageLength)
+
+        #             # update all the unfilled cells with the new choices
+        #             for x, y in self.killerCages[i]:
+
+        #                 num_choices = self.Grids[x][y]["num_choices"]
+
+        #                 # check if an entry is filled.
+        #                 # If a cell has more than 1 choice, then update it.
+        #                 if num_choices > 1:
+        #                     self.Grids[x][y]["choices"] = NewChoices.copy()
+        #                     self.Grids[x][y]["num_choices"] = len(NewChoices)
+
         if self.windoku:
-            for i in range(0, len(self.w0_IDs)):
+            for i in range(len(self.w0_IDs)):
                 self.specialScanner(self.w0_IDs[i], solve, forced_chain)
+        
+        if self.superWindoku:
+            for i in range(len(self.SW0_IDs)):
+                self.specialScanner(self.SW0_IDs[i], solve, forced_chain)
         
         if self.diagonals:
             self.specialScanner(self.d1_ids, solve, forced_chain)
@@ -782,6 +870,21 @@ class Sudoku:
                 
                 # removing filled entries in the magic square
                 self.specialScanner(IDs, solve, forced_chain)
+    
+    def killerCage_candidate_generator(self, total, num_choices):
+        subset = set()
+        allCombinations = list(combinations(self.super_set, num_choices))
+        for combo in allCombinations:
+            sum1 = 0
+            for entry in combo:
+                sum1 += entry
+            if sum1 == total:
+                for entry in combo:
+                    subset.add(entry)
+        
+        subset = list(subset)
+        subset.sort()
+        return subset
                 
     def magicSumSolver(self, row, solve=True, forced_chain=False):     
         # print(f"scanning through col = {row}")
@@ -909,71 +1012,12 @@ class Sudoku:
                 else:
                     self.rc_blockers(entries, forced_chain)
             
-            # This one is problematic! needs some more testing!
-            # if self.antiking or self.antiknight:
+            # if (not retainer) and (self.antiking or self.antiknight):
             #     entries = self.update_entries(row_ids, col_ids)
-            #     if not retainer:
-            #         self.KnightKingIntersections(entries, forced_chain)
-
-    # def KnightKingIntersections(self, entries, forced_chain=False):
-
-    #     for num in [2]:
-    #         fields = []
-    #         for option in self.super_set:
-    #             # print(f"Scanning Subgrid {I+1, J+1} for entry {option}")
-    #             if entries[option]["count"] == num:
-    #                 parentIDs = entries[option]["IDS"]
-    #                 print(f"option = {option} occuring {num} times in {parentIDs}")
-                
-    #                 for ID in parentIDs:
-    #                     field = self.KnightKingSpans(ID)
-    #                     fields.append(field)
-                    
-    #                 IDS = fields[0]
-    #                 for i in range(num):
-    #                     IDS = IDS.intersection(fields[i])
-                    
-    #                 IDS = sorted(IDS - set(parentIDs))
-    #                 print(option, num, IDS)
-    #                 self.fastScanner_gen(IDS, option, forced_chain=forced_chain)
+            #     self.antiKing_Knight_Blocks(entries, forced_chain)
     
-    # def KnightKingSpans(self, MID):
-
-    #     fieldIDs = []
-    #     i, j = MID
-    #     I = i // self.orderRow
-    #     J = j // self.orderCol
-
-    #     # Subgrid IDS
-    #     sg_row_ids = range(I*self.orderRow, (I+1)*self.orderRow)
-    #     sg_col_ids = range(J*self.orderCol, (J+1)*self.orderCol)
-    #     Sub_IDs = list(product(sg_row_ids, sg_col_ids))
-
-    #     # Common row IDS
-    #     cr_row_ids = [i]
-    #     cr_col_ids = range(0, self.cols)
-    #     IDs = list(product(cr_row_ids, cr_col_ids))
-    #     for ID in IDs:
-    #         fieldIDs.append(ID)
-
-    #     # Common col IDS
-    #     cc_row_ids = range(0, self.rows)
-    #     cc_col_ids = [j]
-    #     IDs = list(product(cc_row_ids, cc_col_ids))
-    #     for ID in IDs:
-    #         fieldIDs.append(ID)
-        
-    #     # if self.antiking:
-    #     #     IDs = self.antiking_IDs(i, j)
-    #     #     for ID in IDs:
-    #     #         fieldIDs.append(ID)
-        
-    #     if self.antiknight:
-    #         IDs = self.antiknight_IDs(i, j)
-    #         for ID in IDs:
-    #             fieldIDs.append(ID)
-        
-    #     return set(fieldIDs) - set(Sub_IDs)
+    def antiKing_Knight_Blocks(entries, forced_chain=False):
+        pass
 
     def deepScanner_full(self, gear03=True, forced_chain=False):
 
@@ -991,11 +1035,6 @@ class Sudoku:
             sg_row_ids = range(I*self.orderRow, (I+1)*self.orderRow)
             sg_col_ids = range(J*self.orderCol, (J+1)*self.orderCol)
             self.deepScanner_gen(sg_row_ids, sg_col_ids, gear03, retainer=False, forced_chain=forced_chain)
-        
-        if self.windoku:
-            for i in range(0, len(self.w0_IDs)):
-                row_ids, col_ids = self.ID2RC_pairs(self.w0_IDs[i])
-                self.deepScanner_gen(row_ids, col_ids, gear03, normal_block=False, forced_chain=forced_chain)
         
         if self.diagonals: # or self.oddDiagonals or self.evenDiagonals or self.oddEvenDiagonals or self.evenOddDiagonals:
             # print("Calling diagonals")
@@ -1853,8 +1892,8 @@ class Sudoku:
         # giving a hard reset to the list
         self.priority_list = []
 
-        # don't go more than 10 entries
-        max_count = 10
+        # don't go more than the maximum entries
+        max_count = 1
         count = 0
 
         global_choices = []
@@ -1918,7 +1957,7 @@ class Sudoku:
                     print("Solved in elementary analysis!")
                     return True
                 else:
-                    print("Houston! Cannot solve a brozen puzzle!")
+                    print("Houston! Cannot solve a broken puzzle!")
                     return False
             else:
                 print("Preliminary cleanup didn't work!")
@@ -1962,14 +2001,15 @@ class Sudoku:
                     # attempted entries in the current level
                     choices = list( set(copy.deepcopy(self.Grids[x][y]["choices"])) - 
                                     set(fcr_tracker[checkpointLevel]["Attempted Choices"]) )
+                    # Sorting the entries
+                    choices.sort()
                     
                     print("Choices = ", choices, "Priority Cell = ", self.priority_list[0], "Checkpoint Level = ", checkpointLevel)
                     
                     # check if there are still valid choices
                     if len(choices) >= 1:
                         # so, there is atleast one valid entry to simulate chain reaction
-                        # Sorting the entries
-                        choices.sort()
+                        
                         # Picking the first entry
                         entry = choices[0]
 
@@ -2059,9 +2099,6 @@ class Sudoku:
 
                             # destroy the iterative backtracing matrix
                             self.btMatrix = np.zeros((self.rows, self.cols), dtype=np.int32)
-
-                            # print the fcr_tracker
-                            # print(fcr_tracker)
                             
                             # activate the kill-switch
                             unSolved = False
@@ -2196,6 +2233,21 @@ class Sudoku:
             classicValid = classicValid and nonConsecValid
             # print(f"nonconsec clear {classicValid} {nonConsecValid}")
         
+        if self.killer and sudokuFull:
+
+            killer_valid = True
+            for i in range(len(self.killerSums)):
+                sum1 = self.killerSums[i]
+
+                sum2 = 0
+                for x, y in self.killerCages[i]:
+                    sum2 += Solution[x, y]
+                
+                if sum1 != sum2:
+                    return False
+            
+            classicValid = classicValid and killer_valid
+
         if self.windoku:
 
             windoku_Valid = True
@@ -2214,47 +2266,23 @@ class Sudoku:
             
             classicValid = classicValid and windoku_Valid
         
-        if self.sandwich and sudokuFull:
+        if self.superWindoku:
 
-            sandwichValid = True
+            superWindoku_Valid = True
+            for i in range(0, len(self.SW0_IDs)):
+
+                subgrid_lst = []
+                for x, y in self.SW0_IDs[i]:
+                    subgrid_lst.append(Solution[x, y])
+
+                subgrid_lst = list(filter(lambda a: a != 0, subgrid_lst))
+                subgrid_set = set(subgrid_lst)
+
+                if len(subgrid_lst) != len(subgrid_set):
+                    # print(f"In FC partial counter violation! Counts = {counter}, Constraints = {self.constraints}")
+                    return False
             
-            for i in range(0, self.rows):
-                
-                row = list(Solution[i, :])
-                col = list(Solution[:, i])
-
-                row_counter = 0
-                col_counter = 0
-
-                for entry in self.extremes:
-                    if entry in row:
-                        row_counter += 1
-                    if entry in col:
-                        col_counter += 1
-                    
-                if row_counter == 2:
-                    I1 = row.index(self.extremes[0])
-                    I2 = row.index(self.extremes[1])
-
-                    start, end = (I1, I2) if I1 < I2 else (I2, I1)
-                    sandwichRowSum = sum(row[start:end+1])
-
-                    if sandwichRowSum != self.row_sums[i]:
-                        # print(f"row = {i}", start, end, sandwichRowSum, row, self.row_sums[i])
-                        return False
-                
-                if col_counter == 2:
-                    J1 = col.index(self.extremes[0])
-                    J2 = col.index(self.extremes[1])
-
-                    start, end = (J1, J2) if J1 < J2 else (J2, J1)
-                    sandwichColSum = sum(col[start:end+1])
-
-                    if sandwichColSum != self.col_sums[i]:
-                        # print(f"col = {i}", start, end, sandwichColSum, col, self.col_sums[i])
-                        return False
-
-            classicValid = classicValid and sandwichValid
+            classicValid = classicValid and superWindoku_Valid
         
         if self.thermometer:
 
@@ -2506,26 +2534,74 @@ class Sudoku:
 
 SudokuRoot = tk.Tk()
 
-# my_sudoku = Sudoku(SudokuRoot, sp.problem3_patto_shye)
+# my_sudoku = Sudoku(SudokuRoot, sp.problem3_XYRing, gear05=False)
 
-# root.tk.call('tk', 'scaling', 1.25)
 # my_sudoku = Sudoku(SudokuRoot, sp.problem3_0numTherm, thermometer=True, nThermometerSets=11, thermometerSets=thermometerSets)
+
+# Centre-Magic square, single thermometer, anti-knight sudoku - both are working
+# my_sudoku = Sudoku(SudokuRoot, sp.problem3_aadTribute,
+#                     thermometer=True, nThermometerSets=1, thermometerSets=sp.thermometerSets, antiknight=True,
+#                     magicSquare=True, nMagicsumSets=1, magicSum_sets=sp.magicSum_centre3X3, magicSumVal=15, gear05=False)
 # my_sudoku = Sudoku(SudokuRoot, sp.problem3_aadTribute02,
-#                     thermometer=True, nThermometerSets=1, thermometerSets=thermometerSets, antiknight=True,
-#                     magicSquare=True, nMagicsumSets=1, magicSum_sets=magicSum_sets, magicSumVal=15)
-# my_sudoku = Sudoku(SudokuRoot, sp.problem3_RiSaMiracle2,
-#                     thermometer=True, nThermometerSets=6, thermometerSets=sp.thermometer_RiSa, antiknight=True)
-# my_sudoku = Sudoku(SudokuRoot, sp.problem3_expert08)
+#                     thermometer=True, nThermometerSets=1, thermometerSets=sp.thermometerSets, antiknight=True,
+#                     magicSquare=True, nMagicsumSets=1, magicSum_sets=sp.magicSum_centre3X3, magicSumVal=15, gear05=True)
+
+# my_sudoku = Sudoku(SudokuRoot, sp.problem3_classicEDSS, gear05=False)
 # my_sudoku = Sudoku(SudokuRoot, sp.problem3_chess_oddKnightEvenQN, oddKnightEvenQueen=True)
 # my_sudoku = Sudoku(SudokuRoot, sp.problem3_twinMSOddD, oddDiagonals=True,
 #                    magicSquare=True, nMagicsumSets=2, magicSum_sets=sp.magicSum_special, magicSumVal=15)
 # my_sudoku = Sudoku(SudokuRoot, sp.problem2x3_extreme02, orderCol=3, orderRow=2, gear05=False)
 # my_sudoku = Sudoku(SudokuRoot, sp.problem3_chess_miracle01, gear05=False, antiking=True, nonConsec=True, antiknight=True)
-# my_sudoku = Sudoku(SudokuRoot, sp.problem3_antiknightC1, antiknight=True)
-# my_sudoku = Sudoku(SudokuRoot, sp.problem3_Sandwich01, sandwich=True, row_sums=sp.problem3_Sandwich01_rowsums, cr_status=True,
-#                             orderRow=3, orderCol=3, col_sums=sp.problem3_Sandwich01_colsums, gear05=True)
+
+# my_sudoku = Sudoku(SudokuRoot, sp.problem3_4timesMagic, # antiknight=True, antiking=True,
+#                                 magicSquare=True, nMagicsumSets=4, magicSum_sets=sp.magicSum_4times, magicSumVal=15, gear05=False)
+
+# Windoku working fine
+my_sudoku = Sudoku(SudokuRoot, sp.problem3_windoku02, windoku=True, gear05=False)
+
+# Super Windoku, Windoku, AntiKing, and diagonals
+# my_sudoku = Sudoku(SudokuRoot, sp.problem3_4numbers02, windoku=True, superWindoku=True, antiking=True, diagonals=True,
+#                     magicSquare=True, nMagicsumSets=1, magicSum_sets=sp.magicSum_centre3X3, magicSumVal=15, gear05=False)
+
+# Enable this and tweak it for beautiful sudoku patterns
+# my_sudoku = Sudoku(SudokuRoot, np.zeros((9, 9), dtype=np.int32), orderCol=3, orderRow=3, windoku=True, antiking=True,
+#             magicSquare=True, nMagicsumSets=1, magicSum_sets=sp.magicSum_centre3X3, magicSumVal=15, superWindoku=True)
+
+# -------------------------
+# All problems above are working. The below ones have coding issue
+# -------------------------
+
+# Going for a long time. Need Thermometer code. Some are able to solve within 1 minute. Some are running forever.
+# my_sudoku = Sudoku(SudokuRoot, sp.problem3_4therm2020,
+#                     thermometer=True, nThermometerSets=4, thermometerSets=sp.thermometerGP)
+
+# my_sudoku = Sudoku(SudokuRoot, sp.problem3_ZeroEntry, antiknight=True, antiking=True, nonConsec=True,
+#                     thermometer=True, nThermometerSets=2, thermometerSets=sp.MiracleThermos)
+
+# my_sudoku = Sudoku(SudokuRoot, sp.problem3_Aad16ThermosClassic,
+#                     thermometer=True, nThermometerSets=16, thermometerSets=sp.Aad16ThermosClassic)
+
+# my_sudoku = Sudoku(SudokuRoot, sp.problem3_ZeroEntry, killer=True, killerSums=sp.KillerSums3, killerCages=sp.KillerCages3,
+#                     magicSquare=True, nMagicsumSets=1, magicSum_sets=sp.magicSum_centre3X3, magicSumVal=15, gear05=True)
+
+# my_sudoku = Sudoku(SudokuRoot, sp.problem3_ZeroEntry,
+#                     thermometer=True, nThermometerSets=11, thermometerSets=sp.thermometer_11)
+
+# my_sudoku = Sudoku(SudokuRoot, sp.problem3_CanOfWorms,
+#                     thermometer=True, nThermometerSets=10, thermometerSets=sp.thermometer_CanOfWorms)
+
+# Bigger Sudoku - working for 25x25, 36x36, 49x49 and 64x64. 100x100 and above has memory issues
+# my_sudoku = Sudoku(SudokuRoot, sp.problem64x64, orderCol=8, orderRow=8, gear05=False, scale=10)
+
+# ---------------
+# My sudokus
+# ---------------
+
+# my_sudoku = Sudoku(SudokuRoot, sp.problem3_MySudoku01, nonConsec=True, antiking=True, antiknight=True, gear05=False)
 # my_sudoku = Sudoku(SudokuRoot, sp.problem3_MySudoku02, diagonals=True, antiking=True, gear05=False)
-my_sudoku = Sudoku(SudokuRoot, sp.problem3_4numbers01, antiknight=True, diagonals=True, gear05=False,
-                                magicSquare=True, nMagicsumSets=1, magicSum_sets=sp.magicSum_centre3X3, magicSumVal=15)
+# my_sudoku = Sudoku(SudokuRoot, sp.problem3_MySudoku03, windoku=True, gear05=False, scale=40)
+# my_sudoku = Sudoku(SudokuRoot, sp.problem3_DoubleXWing, gear05=False, scale=40)
+
 SudokuRoot.title("Sudoku")
+
 SudokuRoot.mainloop()

@@ -79,9 +79,9 @@ def lp_sudoku_solver(matrix, orderRow=3, orderCol=3, antiknight=False):
 	
 	return valid, Solution
 
-problem  = sp.problem36x36
+problem  = sp.problem3_patto_shye
 start = time.time()
-valid, solution = lp_sudoku_solver(problem, orderRow=6, orderCol=6)
+valid, solution = lp_sudoku_solver(problem, orderRow=3, orderCol=3)
 end = time.time()
 
 status = "completely" if valid else "partially"

@@ -900,28 +900,6 @@ problem3_ChessRoyal03 = np.array([[0, 0, 0, 0, 0, 0, 0, 0, 0],
                                   [0, 0, 7, 0, 0, 0, 6, 0, 8],
                                   [0, 0, 0, 0, 0, 0, 0, 0, 0]], dtype=np.int32)
 
-# anti-knight - anti-king - nonConsec 
-problem3_MySudoku01 = np.array([[0, 0, 0, 0, 7, 0, 0, 0, 0],
-                                [0, 0, 0, 8, 0, 0, 0, 0, 0],
-                                [0, 0, 9, 0, 0, 0, 0, 0, 0],
-                                [0, 0, 0, 0, 0, 0, 0, 0, 0],
-                                [0, 0, 0, 0, 0, 0, 0, 0, 0],
-                                [0, 0, 0, 0, 0, 0, 0, 0, 0],
-                                [0, 0, 0, 0, 0, 0, 9, 0, 0],
-                                [0, 0, 0, 0, 0, 1, 0, 0, 0],
-                                [0, 0, 0, 0, 2, 0, 0, 0, 0]], dtype=np.int32)
-
-# anti-king diagonal sudoku
-problem3_MySudoku02 = np.array([[3, 0, 2, 0, 6, 0, 1, 0, 9],
-                                [0, 1, 0, 0, 0, 0, 0, 4, 0],
-                                [4, 0, 0, 0, 0, 0, 0, 0, 7],
-                                [0, 0, 0, 7, 0, 1, 0, 0, 0],
-                                [1, 0, 0, 0, 0, 0, 0, 0, 2],
-                                [0, 0, 0, 2, 0, 4, 0, 0, 0],
-                                [5, 0, 0, 0, 0, 0, 0, 0, 3],
-                                [0, 6, 0, 0, 0, 0, 0, 2, 0],
-                                [7, 0, 1, 0, 4, 0, 5, 0, 8]], dtype=np.int32)
-
 # tau-day - king sudoku
 problem3_TauDayKing = np.array([[0, 0, 0, 6, 2, 8, 0, 0, 0],
                                 [0, 0, 9, 0, 0, 0, 3, 0, 0],
@@ -945,6 +923,7 @@ problem3_patto_shye = np.array([[0, 2, 3, 0, 6, 5, 0, 8, 9],
                                 [0, 9, 6, 0, 5, 3, 8, 2, 0]], dtype=np.int32)
 
 # Mirace Sudoku 2 - Ri Sa CTC 28th July 2020;
+# https://www.youtube.com/watch?v=LwkNChSO2yE
 # Anti-knight, and Thermometers
 problem3_RiSaMiracle2 = np.array([[0, 0, 0, 0, 0, 0, 0, 0, 0],
                                   [0, 0, 0, 9, 0, 0, 0, 0, 0],
@@ -969,30 +948,6 @@ thermometer_RiSa.append(thermometer_RiSa03)
 thermometer_RiSa.append(thermometer_RiSa04)
 thermometer_RiSa.append(thermometer_RiSa05)
 thermometer_RiSa.append(thermometer_RiSa06)
-
-# Sandwich Sudoku by Cracking the Cryptic
-problem3_Sandwich01 = np.array([[6, 1, 2, 9, 3, 8, 4, 7, 5],
-                                [7, 8, 3, 0, 0, 0, 0, 0, 0],
-                                [4, 5, 9, 0, 0, 0, 0, 0, 0],
-                                [1, 3, 8, 6, 0, 0, 0, 0, 0],
-                                [2, 7, 4, 0, 1, 0, 0, 0, 0],
-                                [5, 9, 6, 0, 0, 2, 0, 0, 0],
-                                [3, 4, 5, 0, 0, 0, 7, 0, 0],
-                                [9, 2, 1, 0, 0, 0, 0, 0, 0],
-                                [8, 6, 7, 0, 0, 0, 0, 0, 0]], dtype=np.int32)
-problem3_Sandwich01_rowsums = np.array([2, 8, 26, 29, 0, 23, 15, 2, 4], dtype=np.int32)
-problem3_Sandwich01_colsums = np.array([10, 23, 23, 23, 14, 12, 21, 0, 0], dtype=np.int32)
-
-# Sandwich Sudoku 6x6
-problem2x3_Sandwich02 = np.array([[1, 2, 3, 0, 0, 0],
-                                  [5, 4, 6, 0, 0, 0],
-                                  [3, 1, 5, 0, 0, 0],
-                                  [4, 6, 2, 0, 0, 0],
-                                  [6, 5, 1, 0, 0, 0],
-                                  [2, 3, 4, 0, 0, 0],], dtype=np.int32)
-problem2x3_Sandwich02_rowsums = np.array([10, 5, 5, 5, 5, 5], dtype=np.int32)
-problem2x3_Sandwich02_colsums = np.array([12, 0, 7, 7, 7, 10], dtype=np.int32)
-
 
 # Test-run - 16 x 16 Easy sudoku
 problem4_test1 = np.array([[ 3, 14,  0, 10,  1,  0, 11,  0,  0,  0,  0,  0,  0,  4, 12,  0],
@@ -1071,11 +1026,15 @@ problem64x64 = np.load("64x64_sudoku.npy")
 # Special - 100 x 100 sudoku
 problem100x100 = np.load("100x100_sudoku.npy")
 
+# Special - 144 x 144 sudoku
+problem144x144 = np.load("144x144_sudoku.npy")
+
 # print(problem3_miracle1)
 
 ## Thermometer setups
 
 # thermometer set for aad van der wetering tribute by sumanta mukherjee
+# Also applicable for aadTribute
 thermometerSets = []
 thermometer_set01 = [(i, 8-i) for i in range(1, 8)]
 thermometerSets.append(thermometer_set01)
@@ -1165,6 +1124,18 @@ magicSum_set01 = [ (3, 3), (3, 4), (3, 5),
                    (5, 3), (5, 4), (5, 5) ]
 magicSum_centre3X3.append(magicSum_set01)
 
+# Magical Miracle - GridCentre Magic square + AntiKing + AntiKnight
+# https://www.youtube.com/watch?v=iI_B-Owogq0
+problem3_DyingFlutchman01  = np.array([[0, 0, 0, 0, 0, 0, 0, 0, 0],
+                                       [0, 0, 0, 0, 0, 0, 0, 0, 0],
+                                       [0, 0, 0, 0, 0, 0, 0, 0, 0],
+                                       [0, 0, 0, 0, 0, 0, 0, 0, 0],
+                                       [0, 0, 0, 1, 0, 0, 0, 0, 0],
+                                       [0, 0, 0, 0, 0, 0, 0, 0, 0],
+                                       [0, 0, 0, 2, 0, 0, 0, 0, 0],
+                                       [0, 0, 0, 0, 0, 0, 0, 0, 0],
+                                       [0, 0, 0, 4, 0, 0, 0, 0, 0]], dtype=np.int32)
+
 magicSum_GridCentres = []
 magicSum_set02 = [ (1, 1), (1, 4), (1, 7),
                    (4, 1), (4, 4), (4, 7),
@@ -1177,3 +1148,252 @@ magicSum_set03 = [ (0, 2), (1, 3), (2, 4), (1, 1), (2, 2), (3, 3), (2, 0), (3, 1
 magicSum_set04 = [ (4, 6), (5, 7), (6, 8), (5, 5), (6, 6), (7, 7), (6, 4), (7, 5), (8, 6) ]
 magicSum_special.append(magicSum_set03)
 magicSum_special.append(magicSum_set04)
+
+# Can of worms - thermos sudoku with 4 digits and 10 thermometers
+# https://www.youtube.com/watch?v=NxFQ8ftK2yI
+problem3_CanOfWorms   = np.array([[0, 0, 0, 0, 0, 0, 0, 0, 0],
+                                  [0, 0, 0, 0, 0, 0, 0, 0, 0],
+                                  [0, 0, 0, 0, 4, 0, 0, 0, 0],
+                                  [0, 0, 0, 0, 2, 0, 0, 0, 0],
+                                  [0, 0, 0, 0, 0, 0, 0, 0, 0],
+                                  [4, 0, 0, 0, 0, 0, 0, 0, 3],
+                                  [0, 0, 0, 0, 0, 0, 0, 0, 0],
+                                  [0, 0, 0, 0, 0, 0, 0, 0, 0],
+                                  [0, 0, 0, 0, 0, 0, 0, 0, 0]], dtype=np.int32)
+# Thermometers for can of worms
+thermometer_CanOfWorms = []
+thermometer_CanOfWorms01 = [(1, 0), (0, 1)]
+thermometer_CanOfWorms02 = [(3, 0), (2, 1), (1, 2), (0, 3)]
+thermometer_CanOfWorms03 = [(5, 0), (4, 1), (3, 2), (2, 3)]
+thermometer_CanOfWorms04 = [(7, 0), (6, 1), (5, 2), (4, 3)]
+thermometer_CanOfWorms05 = [(7, 2), (6, 3)]
+thermometer_CanOfWorms06 = [(1, 8), (0, 7)]
+thermometer_CanOfWorms07 = [(3, 8), (2, 7), (1, 6), (0, 5)]
+thermometer_CanOfWorms08 = [(5, 8), (4, 7), (3, 6), (2, 5)]
+thermometer_CanOfWorms09 = [(7, 8), (6, 7), (5, 6), (4, 5)]
+thermometer_CanOfWorms10 = [(7, 6), (6, 5)]
+thermometer_CanOfWorms.append(thermometer_CanOfWorms01)
+thermometer_CanOfWorms.append(thermometer_CanOfWorms02)
+thermometer_CanOfWorms.append(thermometer_CanOfWorms03)
+thermometer_CanOfWorms.append(thermometer_CanOfWorms04)
+thermometer_CanOfWorms.append(thermometer_CanOfWorms05)
+thermometer_CanOfWorms.append(thermometer_CanOfWorms06)
+thermometer_CanOfWorms.append(thermometer_CanOfWorms07)
+thermometer_CanOfWorms.append(thermometer_CanOfWorms08)
+thermometer_CanOfWorms.append(thermometer_CanOfWorms09)
+thermometer_CanOfWorms.append(thermometer_CanOfWorms10)
+
+# Partial Killer Sudoku
+# Zero-entry sudoku with partial sums
+# https://www.youtube.com/watch?v=ejhtYYvUs5M
+KillerSums = [7, 5, 6, 6, 23, 15, 17, 3]
+KillerCages = [
+    [(1, 1), (2, 1), (3, 1)],
+    [(1, 5), (1, 6)],
+    [(2, 6), (2, 7)],
+    [(3, 5), (3, 6)],
+    [(5, 2), (5, 3), (6, 3)],
+    [(5, 8), (6, 8)],
+    [(6, 2), (7, 2)],
+    [(8, 5), (8, 6)],
+]
+
+# 10 cages of partial killer sudoku
+# Zero entry sudoku with 10 partial sums
+# https://www.youtube.com/watch?v=qo8rBE-HHIw
+KillerSums1 = [17, 18, 30, 16, 24, 20, 27, 26, 24, 28]
+KillerCages1 = [
+    [(4, 0), (5, 0), (6, 0), (7, 0), (8, 0)],
+    [(4, 1), (5, 1), (6, 1), (6, 2)],
+    [(4, 2), (5, 2), (5, 3), (6, 3), (6, 4)],
+    [(7, 1), (8, 1), (8, 2), (8, 3)],
+    [(7, 2), (7, 3), (7, 4), (8, 4)],
+    [(0, 4), (1, 4), (1, 5), (1, 6)],
+    [(0, 5), (0, 6), (0, 7), (1, 7)],
+    [(0, 8), (1, 8), (2, 8), (3, 8), (4, 8)],
+    [(2, 4), (2, 5), (3, 5), (3, 6), (4, 6)],
+    [(2, 6), (2, 7), (3, 7), (4, 7)],
+]
+
+# The unbelievable sudoku
+# 16-thermometer classic sudoku by Aad Van Der Wetering
+# https://www.youtube.com/watch?v=5wtgymz5yjQ
+
+problem3_Aad16ThermosClassic = np.array([[0, 0, 0, 0, 0, 0, 0, 0, 0],
+                                         [0, 0, 0, 0, 0, 0, 0, 0, 0],
+                                         [0, 0, 0, 0, 0, 0, 0, 0, 0],
+                                         [0, 0, 0, 0, 9, 0, 1, 0, 0],
+                                         [0, 0, 0, 0, 1, 0, 0, 0, 0],
+                                         [8, 0, 0, 0, 0, 0, 0, 0, 0],
+                                         [0, 0, 0, 0, 0, 0, 0, 0, 0],
+                                         [0, 0, 0, 0, 0, 0, 0, 0, 0],
+                                         [9, 0, 0, 0, 0, 0, 0, 0, 0]], dtype=np.int32)
+Aad16ThermosClassic = []
+Aad16ThermosClassic.append([(1, 1), (0, 0)])
+Aad16ThermosClassic.append([(1, 3), (0, 2)])
+Aad16ThermosClassic.append([(3, 1), (2, 0)])
+Aad16ThermosClassic.append([(3, 3), (2, 2)])
+Aad16ThermosClassic.append([(1, 5), (0, 6)])
+Aad16ThermosClassic.append([(1, 7), (0, 8)])
+Aad16ThermosClassic.append([(3, 5), (2, 6)])
+Aad16ThermosClassic.append([(3, 7), (2, 8)])
+Aad16ThermosClassic.append([(5, 1), (6, 0)])
+Aad16ThermosClassic.append([(5, 3), (6, 2)])
+Aad16ThermosClassic.append([(7, 1), (8, 0)])
+Aad16ThermosClassic.append([(7, 3), (8, 2)])
+Aad16ThermosClassic.append([(5, 5), (6, 6)])
+Aad16ThermosClassic.append([(5, 7), (6, 8)])
+Aad16ThermosClassic.append([(7, 5), (8, 6)])
+Aad16ThermosClassic.append([(7, 7), (8, 8)])
+
+# Wei-Hwa Huang and Bram Cohen's Thermo Miracle Sudoku
+# https://www.youtube.com/watch?v=Tv-48b-KuxI
+# Check the description for this puzzle
+
+MiracleThermos = []
+MiracleThermos.append([(2, 6), (1, 6)])
+MiracleThermos.append([(6, 3), (6, 2), (6, 1)])
+
+# Four times the magic
+# 4 magic squares
+# https://www.youtube.com/watch?v=AhtOf4iVicY
+problem3_4timesMagic = np.array([[0, 0, 0, 0, 0, 0, 0, 0, 0],
+                                 [0, 0, 0, 0, 0, 0, 0, 0, 1],
+                                 [0, 0, 0, 0, 0, 0, 0, 0, 0],
+                                 [0, 0, 0, 0, 0, 0, 0, 0, 0],
+                                 [0, 0, 0, 0, 0, 0, 0, 0, 0],
+                                 [0, 0, 0, 0, 0, 0, 0, 0, 0],
+                                 [0, 0, 0, 0, 0, 0, 0, 0, 0],
+                                 [0, 0, 0, 0, 0, 0, 0, 0, 0],
+                                 [0, 6, 0, 0, 0, 0, 0, 0, 0]], dtype=np.int32)
+
+magicSum_4times = []
+magicSum_4times.append([(0, 4), (0, 5), (0, 6), (1, 4), (1, 5), (1, 6), (2, 4), (2, 5), (2, 6)])
+magicSum_4times.append([(2, 0), (2, 1), (2, 2), (3, 0), (3, 1), (3, 2), (4, 0), (4, 1), (4, 2)])
+magicSum_4times.append([(4, 6), (4, 7), (4, 8), (5, 6), (5, 7), (5, 8), (6, 6), (6, 7), (6, 8)])
+magicSum_4times.append([(6, 2), (6, 3), (6, 4), (7, 2), (7, 3), (7, 4), (8, 2), (8, 3), (8, 4)])
+
+# One of the best arrow sudokus
+# Classic arrow sudoku with 17 arrows - Zero Entry
+# https://www.youtube.com/watch?v=PvDpp6w35_Q
+
+# Layla
+# A very tough and minimal Partial Killer Sudoku
+# https://www.youtube.com/watch?v=R7lhWruNlJo
+
+# Personal creation - windoku, superWindoku, antiking, diagonal, centre magic square
+problem3_4numbers02 = np.array([[0, 0, 0, 0, 0, 0, 0, 0, 0],
+                                [0, 0, 0, 0, 0, 0, 0, 0, 0],
+                                [0, 0, 0, 0, 0, 0, 0, 0, 0],
+                                [0, 0, 0, 0, 0, 0, 3, 8, 9],
+                                [0, 0, 0, 0, 0, 0, 0, 0, 0],
+                                [0, 0, 0, 0, 0, 0, 0, 0, 0],
+                                [0, 0, 0, 0, 0, 0, 0, 0, 0],
+                                [0, 0, 0, 0, 0, 0, 0, 0, 0],
+                                [1, 0, 0, 0, 0, 0, 0, 0, 0]], dtype=np.int32)
+
+# Flor de Barcelona
+# Partial Killer Sudoku with Anti-knight condition
+# https://www.youtube.com/watch?v=OnyDYIOeh0o
+problem3_FlorDeBarcelona = np.array([[1, 0, 0, 0, 0, 0, 0, 0, 0],
+                                     [0, 0, 0, 0, 0, 0, 0, 0, 0],
+                                     [0, 0, 0, 0, 0, 0, 0, 0, 0],
+                                     [0, 0, 0, 0, 0, 0, 0, 0, 0],
+                                     [0, 0, 0, 0, 0, 0, 0, 0, 0],
+                                     [0, 0, 0, 0, 0, 0, 0, 0, 0],
+                                     [0, 0, 0, 0, 0, 0, 0, 0, 0],
+                                     [0, 0, 0, 0, 0, 0, 0, 0, 0],
+                                     [0, 0, 0, 0, 0, 0, 0, 0, 2]], dtype=np.int32)
+KillerSums2 = [24, 22, 19, 27, 29, 19, 22, 24]
+KillerCages2 = [
+    [(1, 2), (1, 1), (2, 1), (3, 1)],
+    [(3, 2), (4, 2), (5, 2), (5, 1)],
+    [(6, 1), (7, 1), (7, 2), (7, 3)],
+    [(6, 3), (6, 4), (6, 5), (7, 5)],
+    [(1, 3), (2, 3), (2, 4), (2, 5)],
+    [(1, 5), (1, 6), (1, 7), (2, 7)],
+    [(3, 7), (3, 6), (4, 6), (5, 6)],
+    [(5, 7), (6, 7), (7, 7), (7, 6)],
+]
+
+# Puzzle one of us failed to solve
+# Empty sudoku + Centre Magic Square + Partial Killer
+# https://www.youtube.com/watch?v=m4ReFqff53M
+
+KillerSums3 = [16, 12, 10, 16, 10, 20, 22, 15, 14, 16, 7, 24]
+KillerCages3 = [
+    [(1, 1), (1, 2), (2, 1)],
+    [(1, 3), (2, 3), (2, 2)],
+    [(3, 1), (3, 2)],
+    [(1, 5), (2, 5)],
+    [(1, 6), (1, 7), (2, 6)],
+    [(2, 7), (3, 7), (3, 6)],
+    [(5, 1), (5, 2), (6, 1), (7, 1)],
+    [(6, 2), (7, 2)],
+    [(6, 3), (7, 3)],
+    [(5, 6), (5, 7), (6, 6)],
+    [(6, 5), (7, 5)],
+    [(6, 7), (7, 7), (7, 6)],
+]
+
+# XY Ring puzzle
+# Classic Sudoku with an XY Ring
+# https://www.youtube.com/watch?v=OUKwjVs4MsY
+problem3_XYRing = np.array([[0, 0, 0, 0, 0, 0, 0, 0, 0],
+                            [0, 0, 8, 0, 4, 0, 1, 0, 0],
+                            [0, 1, 0, 2, 0, 3, 0, 9, 0],
+                            [0, 0, 4, 0, 0, 0, 6, 0, 0],
+                            [0, 7, 0, 0, 0, 0, 0, 2, 0],
+                            [0, 0, 1, 0, 0, 0, 5, 0, 0],
+                            [0, 2, 0, 3, 0, 7, 0, 1, 0],
+                            [0, 0, 5, 0, 6, 0, 4, 0, 0],
+                            [0, 0, 0, 0, 0, 0, 0, 0, 0]], dtype=np.int32)
+
+# Classic Sudoku
+# Double X-wing
+# https://www.youtube.com/watch?v=Ygb3bIFAJzY
+problem3_DoubleXWing = np.array([[0, 0, 0, 0, 0, 0, 0, 0, 0],
+                                 [0, 7, 0, 5, 0, 9, 0, 4, 0],
+                                 [0, 0, 5, 0, 1, 0, 2, 0, 0],
+                                 [0, 9, 0, 0, 0, 0, 0, 5, 0],
+                                 [7, 0, 0, 0, 3, 0, 0, 0, 4],
+                                 [0, 6, 0, 0, 0, 0, 0, 3, 0],
+                                 [0, 0, 1, 0, 2, 0, 3, 0, 0],
+                                 [0, 8, 0, 6, 0, 4, 0, 9, 0],
+                                 [0, 0, 0, 0, 0, 0, 0, 0, 0]], dtype=np.int32)
+
+# ----------------
+# My Sudokus
+
+# anti-knight - anti-king - nonConsec 
+problem3_MySudoku01 = np.array([[0, 0, 0, 0, 7, 0, 0, 0, 0],
+                                [0, 0, 0, 8, 0, 0, 0, 0, 0],
+                                [0, 0, 9, 0, 0, 0, 0, 0, 0],
+                                [0, 0, 0, 0, 0, 0, 0, 0, 0],
+                                [0, 0, 0, 0, 0, 0, 0, 0, 0],
+                                [0, 0, 0, 0, 0, 0, 0, 0, 0],
+                                [0, 0, 0, 0, 0, 0, 0, 0, 0],
+                                [0, 0, 0, 0, 0, 0, 0, 0, 0],
+                                [0, 0, 0, 0, 2, 0, 0, 0, 0]], dtype=np.int32)
+
+# anti-king diagonal sudoku
+problem3_MySudoku02 = np.array([[3, 0, 2, 0, 6, 0, 1, 0, 9],
+                                [0, 1, 0, 0, 0, 0, 0, 4, 0],
+                                [4, 0, 0, 0, 0, 0, 0, 0, 7],
+                                [0, 0, 0, 7, 0, 1, 0, 0, 0],
+                                [1, 0, 0, 0, 0, 0, 0, 0, 2],
+                                [0, 0, 0, 2, 0, 4, 0, 0, 0],
+                                [5, 0, 0, 0, 0, 0, 0, 0, 3],
+                                [0, 6, 0, 0, 0, 0, 0, 2, 0],
+                                [7, 0, 1, 0, 4, 0, 5, 0, 8]], dtype=np.int32)
+
+# Windoku sudoku + B.U.G at R6C9. It should be 5 for a solution.
+problem3_MySudoku03 = np.array([[3, 0, 7, 0, 6, 0, 0, 0, 9],
+                                [0, 0, 0, 8, 0, 5, 0, 0, 0],
+                                [0, 0, 9, 0, 2, 0, 4, 0, 0],
+                                [0, 0, 0, 0, 3, 0, 0, 0, 0],
+                                [1, 0, 0, 6, 0, 9, 0, 0, 2],
+                                [0, 0, 0, 0, 8, 0, 0, 0, 0],
+                                [0, 0, 1, 0, 7, 0, 6, 0, 0],
+                                [0, 0, 0, 5, 0, 8, 0, 0, 0],
+                                [7, 0, 0, 0, 4, 0, 2, 0, 8]], dtype=np.int32)
